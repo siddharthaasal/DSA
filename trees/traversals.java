@@ -1,5 +1,8 @@
 import java.util.*;
 
+import javax.swing.tree.TreeNode;
+import javafx.util.Pair;
+
 class traversals {
     static class Node {
         int data;
@@ -9,6 +12,24 @@ class traversals {
             this.data = data;
             this.left = null;
             this.right = null;
+        }
+    }
+    
+    static class Pair<K, V> {
+        private K key;
+        private V value;
+
+        public Pair(K key, V value) {
+            this.key = key;
+            this.value = value;
+        }
+
+        public K getKey() {
+            return key;
+        }
+
+        public V getValue() {
+            return value;
         }
     }
 
@@ -178,6 +199,23 @@ class traversals {
             }
         }
     }
+
+    public static List<List<Integer>> verticalTraversal(Node root) {
+        Map<Integer, Map<Integer, TreeSet<Integer>>> map = new TreeMap<>();
+        Queue<Pair<Node, Pair<Integer, Integer>>> queue = new LinkedList<>();
+
+        queue.add(new Pair<>(root, new Pair<>(0, 0)));
+
+        while (!queue.isEmpty()) {
+            Pair<Node, Pair<Integer, Integer>> p = queue.poll();
+            int x = p.getValue().getKey();
+            int y = p.getValue().getValue();
+            map.computeIfAbsent(x, k-> new , null)
+
+        }
+    }
+
+    // }
 
     public static void main(String args[]) {
         /*
